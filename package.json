@@ -13,6 +13,8 @@
     "vue": "^3.2.26"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/vue": "^6.4.2",
     "@types/node": "^16.11.12",
     "@vitejs/plugin-vue": "^2.0.0",
     "@vue/test-utils": "^2.0.0-rc.17",
