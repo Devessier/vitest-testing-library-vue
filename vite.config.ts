@@ -1,19 +1,22 @@
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from "url";
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
   },
   test: {
     global: true,
-    environment: 'happy-dom',
-    setupFiles: ['./test/setup.ts']
-  }
-})
+    environment: "jsdom",
+    setupFiles: ["./test/setup.ts"],
+    deps: {
+      inline: ["@vue", "@testing-library/vue"],
+    },
+  },
+});
