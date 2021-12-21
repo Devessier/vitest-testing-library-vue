@@ -12,11 +12,13 @@ function increment() {
 </script>
 
 <template>
-  <main class="flex justify-center items-center min-h-screen">
-    <h1>Vitest + Testing Library Vue</h1>
+  <main class="flex flex-col items-center justify-center min-h-screen">
+    <h1 class="mb-4">Vitest + Testing Library Vue</h1>
 
-    <p>Count: {{ counter }}</p>
+    <div class="flex space-x-4">
+      <p>Count: {{ counter }}</p>
 
-    <button @click="increment">Increase counter</button>
+      <button @click="increment">Increase counter</button>
+    </div>
   </main>
 </template>
