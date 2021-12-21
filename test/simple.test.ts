@@ -1,8 +1,8 @@
-import { fireEvent, render, waitFor } from '@testing-library/vue'
+import { screen, fireEvent, render, waitFor } from '@testing-library/vue'
 import App from "../src/App.vue";
 
 test("mount component", async () => {
-  const screen = render(App);
+  render(App);
 
   expect(screen.getByText(/vitest/i)).toBeTruthy();
 
@@ -10,13 +10,13 @@ test("mount component", async () => {
   expect(increaseButton).toBeVisible();
   expect(increaseButton).toHaveTextContent('Increase');
 
-  console.log(increaseButton.onclick)
-
-  expect(screen.getByText(/count: 0/i)).toBeVisible()
+  expect(screen.getByText(/count.*0/i)).toBeVisible()
   
   await fireEvent.click(increaseButton)
 
   await waitFor(() => {
-    expect(screen.getByText(/count: 1/i)).toBeVisible()
+    expect(screen.getByText(/count.*1/i)).toBeVisible()
+  }, {
+    timeout: 4_000
   })
 });
