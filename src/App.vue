@@ -4,8 +4,6 @@ import { ref } from "vue";
 const counter = ref(0);
 
 function increment() {
-  console.log("increment");
-
   counter.value++;
 }
 </script>
